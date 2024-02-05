@@ -13,42 +13,36 @@ const Home = () => {
         Content : ""
     });
     const [isLightMode, setIsLightMode] = useState(true)
+    let lightStyle = {
+        Sider : "skyBlue",
+        Header : "white",
+        Content : "green"
+    }
+    let darkStyle = {
+        Sider : "darkBlue",
+        Header : "black",
+        Content : "darkGreen"
+    }
     useEffect(() => {
         console.log("home")
         let date = new Date();
         console.log(date.getHours());
         if (date.getHours() > 6 && date.getHours() < 18) {
             setThemeStyle(
-                {
-                    Sider : "skyBlue",
-                    Header : "white",
-                    Content : "green"
-                }
+                lightStyle
                 )
             setIsLightMode(true)
         }else {
-            setThemeStyle({
-                Sider : "darkBlue",
-                Header : "black",
-                Content : "darkGreen"
-            })
+            setThemeStyle(darkStyle)
             setIsLightMode(false)
         }
     }, []);
     useEffect(() => {
         if (isLightMode) {
-            setThemeStyle({
-                Sider : "skyBlue",
-                Header : "white",
-                Content : "green"
-            })
+            setThemeStyle(lightStyle)
         }
         else {
-            setThemeStyle({
-                Sider : "darkBlue",
-                Header : "black",
-                Content : "darkGreen"
-            })
+            setThemeStyle(darkStyle)
         }
     },[isLightMode])
     return (
