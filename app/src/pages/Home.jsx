@@ -1,156 +1,53 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {LaptopOutlined, NotificationOutlined, UserOutlined} from '@ant-design/icons';
 import {Breadcrumb, Layout, Menu, theme} from 'antd';
+import Title from "antd/es/skeleton/Title";
 
 const {Header, Content, Sider} = Layout;
 
-const headerItems = [
-    {
-        key: '1',
-        label: 'nav 1',
-    },
-    {
-        key: '2',
-        label: 'nav 2',
-    },
-    {
-        key: '3',
-        label: 'nav 3',
-    }
-];
-const menuItems = [
-    {
-        key: '1',
-        icon: React.createElement(UserOutlined),
-        label: 'option 1',
-        children: [
-            {
-                key: '1',
-                label: 'option 1'
-            },
-            {
-                key: '2',
-                label: 'option 2'
-            },
-            {
-                key: '3',
-                label: 'option 3'
-            },
-            {
-                key: '4',
-                label: 'option 4'
-            }
-        ]
-    },
-    {
-        key: '2',
-        icon: React.createElement(UserOutlined),
-        label: 'option 1',
-        children: [
-            {
-                key: '1',
-                label: 'option 1'
-            },
-            {
-                key: '2',
-                label: 'option 2'
-            },
-            {
-                key: '3',
-                label: 'option 3'
-            },
-            {
-                key: '4',
-                label: 'option 4'
-            }
-        ]
-    }
-]
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-    const key = String(index + 1);
-    return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-        children: new Array(4).fill(null).map((_, j) => {
-            const subKey = index * 4 + j + 1;
-            return {
-                key: subKey,
-                label: `option${subKey}`,
-            };
-        }),
-    };
-});
 const Home = () => {
-    const {
-        token: {colorBgContainer, borderRadiusLG},
-    } = theme.useToken();
+    const [themeStyle, setThemeStyle] = useState(["","", ""]);
+    useEffect(() => {
+        console.log("home")
+        let date = new Date();
+        console.log(date.getHours());
+        if (date.getHours() > 6 && date.getHours() < 18) {
+            setThemeStyle(["skyBlue", "white", "green"])
+        }else {
+            setThemeStyle(["darkBlue", "black", "darkGreen"])
+        }
+    }, []);
     return (
-        <Layout>
-            <Header
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                }}
-            >
-                <div className="demo-logo"/>
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    defaultSelectedKeys={['1']}
-                    items={headerItems}
-                    style={{
-                        flex: 1,
-                        minWidth: 0,
-                    }}
-                />
-            </Header>
-            <Layout>
-                <Sider
-                    width={200}
-                    style={{
-                        background: colorBgContainer,
-                    }}
-                >
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
-                        style={{
-                            height: '100%',
-                            borderRight: 0,
-                        }}
-                        items={menuItems}
-                    />
-                </Sider>
-                <Layout
-                    style={{
-                        padding: '0 24px 24px',
-                    }}
-                >
-                    <Breadcrumb
-                        style={{
-                            margin: '16px 0',
-                        }}
-                    >
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>List</Breadcrumb.Item>
-                        <Breadcrumb.Item>App</Breadcrumb.Item>
-                    </Breadcrumb>
-                    <Content
-                        style={{
-                            padding: 24,
-                            margin: 0,
-                            minHeight: 280,
-                            background: colorBgContainer,
-                            borderRadius: borderRadiusLG,
-                        }}
-                    >
-                        Content
-                    </Content>
-                </Layout>
-            </Layout>
-        </Layout>
-    );
+       <> <Layout style={{ minHeight: '100vh' }}>
+           <Sider trigger={null} collapsible style={{backgroundColor : themeStyle[0]}} >
+               <div className="logo" />
+               <Menu style={{backgroundColor : themeStyle[0]}} mode="inline" defaultSelectedKeys={['1']}>
+                   <Menu.Item key="1">
+                       导航一
+                   </Menu.Item>
+                   <Menu.Item key="2">
+                       导航二
+                   </Menu.Item>
+                   <Menu.Item key="3">
+                       导航三
+                   </Menu.Item>
+               </Menu>
+           </Sider>
+
+           <Layout className="site-layout">
+               <Header  className="site-layout-background" style={{ padding: 0 ,backgroundColor : themeStyle[1]}}>
+                   <div>
+                       <Title>123</Title>
+                   </div>
+               </Header>
+
+               <Content style={{ margin: '24px 16px 0', overflow: 'initial' , backgroundColor : themeStyle[2] }}>
+                   <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                       {/*特别感谢：测试者SFW*/}
+                   </div>
+               </Content>
+           </Layout>
+       </Layout></>
+    )
 };
 export default Home;

@@ -5,7 +5,8 @@ import Title from "antd/es/skeleton/Title";
 import {useForm} from "antd/es/form/Form";
 import {Router, useHref} from "react-router-dom";
 import axios from "axios";
-import {axiosRequest, request} from "../untils/request";
+import { request} from "../untils/request";
+import {md5} from "js-md5";
 
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
         request({
             url: "/login", method: "POST", data: {
                 userTel: values.userTel,
-                password: values.password
+                password: md5(values.password)
             }
         }).then((res) => {
             console.log(res);

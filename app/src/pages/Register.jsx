@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Button, Col, Form, Input, Modal, Row, Select} from "antd";
 import axios from "axios";
 import {request} from "../untils/request";
+import {md5} from "js-md5";
 
 const {Option} = Select;
 
@@ -27,7 +28,7 @@ const Register = () => {
             return;
         }
         //如果手机号符合正则规则，则发送请求
-        request({url: "/getMsg", method: "GET", params:{userTel : userTel}}).then((res) => {
+        request({url: "getMsg", method: "GET", params:{userTel : userTel}}).then((res) => {
             console.log(res);
             if (res.code === 200) {
                 Modal.success({
@@ -86,7 +87,8 @@ const Register = () => {
             // useForm.resetFields();
             return;
         }
-
+        values.password = md5(values.password);
+        console.log(values.password);
         request({
             url: "/register",
             method: "POST",
