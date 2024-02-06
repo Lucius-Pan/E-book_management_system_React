@@ -3,6 +3,7 @@ import {Button, Col, Form, Input, Modal, Row, Select} from "antd";
 import axios from "axios";
 import {request} from "../untils/request";
 import {md5} from "js-md5";
+import Title from "antd/es/skeleton/Title";
 
 const {Option} = Select;
 
@@ -124,13 +125,13 @@ const Register = () => {
                 onFinish={register} form={useForm}
             >
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={3}>
+                    <Col style={{margin: "auto"}} offset={10} xs={5} lg={2}>
                         <h1>Register</h1>
                     </Col>
                 </Row>
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={6}>
-                        <Form.Item required={true} label={"手机号"} labelAlign={"right"} name={"userTel"}
+                    <Col style={{margin: "auto"}} xs={14} lg={6}>
+                        <Form.Item  required={true} label={"手机号"} labelAlign={"left"} name={"userTel"}
                                    rules={[
                                        {
                                            required: true,
@@ -144,8 +145,8 @@ const Register = () => {
                     </Col>
                 </Row>
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={6}>
-                        <Form.Item required={true} label={"短信验证码"} labelAlign={"right"} name={"megCode"}
+                    <Col style={{margin: "auto"}} xs={14} lg={6} >
+                        <Form.Item  required={true} label={"短信验证码"} labelAlign={"right"} name={"megCode"}
                                    rules={[
                                        {
                                            required: true,
@@ -154,14 +155,14 @@ const Register = () => {
                                        }
                                    ]}
                         >
-                            <Input addonBefore={<Button type={"text"} disabled={msgBtnState}
+                            <Input  addonBefore={<Button type={"text"} disabled={msgBtnState}
                                                         onClick={() => getMsg()}>获取验证码</Button>}
                                    placeholder="Enter your telephone number"/>
                         </Form.Item>
                     </Col>
                 </Row>
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={6}>
+                    <Col style={{margin: "auto"}} xs={14} lg={6}>
                         <Form.Item required={true} label={"用户名"} labelAlign={"right"} name={"userName"}
                                    rules={[
                                        {
@@ -175,7 +176,7 @@ const Register = () => {
                     </Col>
                 </Row>
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={6}>
+                    <Col style={{margin: "auto"}} xs={14} lg={6}>
                         <Form.Item required={true} label={"电子邮箱"} labelAlign={"right"} name={"email"}
                                    rules={[
                                        {
@@ -190,7 +191,7 @@ const Register = () => {
                     </Col>
                 </Row>
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={6}>
+                    <Col style={{margin: "auto"}} xs={14} lg={6}>
                         <Form.Item required={true} label={"密码"} labelAlign={"right"} name={"password"}
                                    rules={[
                                        {
@@ -205,7 +206,7 @@ const Register = () => {
                     </Col>
                 </Row>
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} span={6}>
+                    <Col style={{margin: "auto"}} xs={14} lg={6}>
                         <Form.Item required={true} label={"确认密码"} labelAlign={"right"} name={"comfirmPassword"}
                                    rules={[
                                        {

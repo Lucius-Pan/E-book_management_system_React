@@ -86,15 +86,15 @@ const Login = () => {
                         </Col>
                     </Row>
                     <Row gutter={24}>
-                        <Col style={{margin: "auto"}} span={6}>
+                        <Col style={{margin: "auto"}} xxl={8} sm={4} >
                             <Form.Item label={"手机号"} labelAlign={"right"} name={"userTel"}>
                                 <Input placeholder="Enter your username"/>
                             </Form.Item>
                         </Col>
                     </Row>
                     <Row gutter={24}>
-                        <Col style={{margin: "auto"}} span={6}>
-                            <Form.Item label={"密码"} labelAlign={"right"} name={"password"}>
+                        <Col style={{margin: "auto"}}  xxl={8} md={4}>
+                            <Form.Item label={"密码"}  labelAlign={"right"} name={"password"}>
                                 <Input.Password
                                     placeholder="input password"
                                     iconRender={(visible) => (visible ? <EyeTwoTone/> : <EyeInvisibleOutlined/>)}

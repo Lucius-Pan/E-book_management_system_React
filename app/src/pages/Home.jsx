@@ -47,7 +47,7 @@ const Home = () => {
     },[isLightMode])
     return (
        <> <Layout style={{ minHeight: '100vh' }}>
-           <Sider trigger={null} collapsible style={{backgroundColor : themeStyle.Sider}} >
+           <Sider collapsed={true} trigger={null} collapsible style={{backgroundColor : themeStyle.Sider}} >
                <div className="logo" />
                <Menu style={{backgroundColor : themeStyle.Sider}} mode="inline" defaultSelectedKeys={['1']}>
                    <Menu.Item key="1">
