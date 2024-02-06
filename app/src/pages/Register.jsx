@@ -125,7 +125,7 @@ const Register = () => {
                 onFinish={register} form={useForm}
             >
                 <Row gutter={24}>
-                    <Col style={{margin: "auto"}} offset={10} xs={5} lg={2}>
+                    <Col style={{margin: "auto"}} offset={8} xs={7} lg={2}>
                         <h1>Register</h1>
                     </Col>
                 </Row>
