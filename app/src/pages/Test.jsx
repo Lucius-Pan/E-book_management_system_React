@@ -1,24 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, Tooltip} from "antd";
 import {request} from "../untils/request";
+import CrvViewMotorVehicleInvoice from "../components/CrvViewMotorVehicleInvoice";
 
 const Test = () => {
+    const [visio, setVisio] = useState(false)
     const test = () => {
-        const res = request({
-            url: "/getMsg",
-            method: "GET",
-            params: {
-                userTel: 1
-            }
-        }).then((res) => {
-            console.log(res)
-        })
-        console.log(res)
+        setVisio(true)
     }
     return (
         <>
             <div>
                 <Button onClick={() => test()}>test</Button>
+                <CrvViewMotorVehicleInvoice
+                    visible={visio}
+                    // title={"test"}
+                    onOk={() => setVisio(false)}
+                    onCancel={() => setVisio(false)}
+                ></CrvViewMotorVehicleInvoice>
             </div>
 
         </>
