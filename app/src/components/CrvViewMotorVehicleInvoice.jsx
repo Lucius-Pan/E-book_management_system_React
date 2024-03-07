@@ -15,7 +15,7 @@ const CrvViewMotorVehicleInvoice = (props) => {
             >
                 <div>
                     <Row>
-                        <span>发票预览123</span>
+                        <span>发票预览</span>
                     </Row>
                     <Row gutter={8}>
                         <Col span={6}>
