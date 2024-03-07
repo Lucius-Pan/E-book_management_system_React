@@ -23,6 +23,7 @@ const Home = () => {
         Header : "black",
         Content : "darkGreen"
     }
+    
     useEffect(() => {
         console.log("home")
         let date = new Date();

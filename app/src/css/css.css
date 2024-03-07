@@ -1,0 +1,21 @@
+.doubleUnderline {
+  position: relative;
+}
+
+.doubleUnderline::after,
+.doubleUnderline::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #916857;
+  left: 0;
+}
+
+.doubleUnderline::before {
+  bottom: -5px;
+}
+
+.doubleUnderline::after {
+  bottom: -10px;
+}
