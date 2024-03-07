@@ -5,31 +5,51 @@ import {Col, Drawer, Modal, Row} from "antd";
 const CrvViewMotorVehicleInvoice = (props) => {
     return (
         <>
-            <Drawer
-            width={props.width || "100%"}
-            height={props.height || "100%"}
-            visible={props.visible}
-            title={props.title }
-            onClose={props.onCancel}
-            footer={props.footer }
-            >
-                <div>
+            <div>
+                <Row>
+                    <span>发票预览</span>
+                </Row>
+                <Row >
+                    <Col span={9}>
+
+                    </Col>
                     <Row>
-                        <span>发票预览</span>
-                    </Row>
-                    <Row gutter={8}>
-                        <Col span={6}>
+                        <Col span={7} offset={5}>
 
                         </Col>
-                        <Col span={6}>
-                            <span color={"#916447"}>机动车销售统一发票</span>
+                        <Col span={4}>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "space-around",
+                                    fontFamily: "楷体",
+                                    fontSize: 34,
+                                    width: "100%",
+                                    flexDirection: "row",
+                                }}
+                            >
+                                <span>机</span>
+                                <span>动</span>
+                                <span>车</span>
+                                <span>销</span>
+                                <span>售</span>
+                                <span>统</span>
+                                <span>一</span>
+                                <span>发</span>
+                                <span>票</span>
+                            </div>
+
                         </Col>
-                        <Col>
+                        <Col span={7} offset={1}>
 
                         </Col>
                     </Row>
-                </div>
-            </Drawer>
+
+                    <Col>
+
+                    </Col>
+                </Row>
+            </div>
         </>
     );
 
