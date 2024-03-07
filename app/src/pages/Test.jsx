@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Tooltip} from "antd";
+import {Button, Drawer, Tooltip} from "antd";
 import {request} from "../untils/request";
 import CrvViewMotorVehicleInvoice from "../components/CrvViewMotorVehicleInvoice";
 
@@ -11,13 +11,10 @@ const Test = () => {
     return (
         <>
             <div>
-                <Button onClick={() => test()}>test</Button>
-                <CrvViewMotorVehicleInvoice
-                    visible={visio}
-                    // title={"test"}
-                    onOk={() => setVisio(false)}
-                    onCancel={() => setVisio(false)}
-                ></CrvViewMotorVehicleInvoice>
+                {/*<Button onClick={() => test()}>test</Button>*/}
+              <CrvViewMotorVehicleInvoice>
+
+              </CrvViewMotorVehicleInvoice>
             </div>
 
         </>
